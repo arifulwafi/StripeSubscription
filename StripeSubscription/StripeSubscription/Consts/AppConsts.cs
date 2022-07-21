@@ -8,7 +8,7 @@ namespace StripeSubscription
 {
     public class AppConsts
     {
-        public const int SubscriptionQty = 10;
+        public const int SubscriptionQty = 15;
         public const int TrialDays = 14;
     }
 }

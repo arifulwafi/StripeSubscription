@@ -20,10 +20,11 @@ namespace StripeSubscription
 
             //3. Add Payment Method (LunaHR subscription page UI to Stripe)
             //4.Update Subscription(only if complete to other modules)
-            subscriptionService.UpdateSubscription();
+            //subscriptionService.UpdateSubscription();
 
             //5. Add/Remove Users
             //subscriptionService.UpdateSubscriptionOnNewUser();
+            subscriptionService.UpdateSubscriptionOnUserLeave();
 
             //6. Add/Remove Modules
             //subscriptionService.UpdateSubscriptionOnNewModules();

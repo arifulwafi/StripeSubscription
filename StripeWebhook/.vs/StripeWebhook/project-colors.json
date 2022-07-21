@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "168324dd-a91b-4ec9-8ffb-adfe78c7014d": {
+      "ProjectGuid": "168324dd-a91b-4ec9-8ffb-adfe78c7014d",
+      "DisplayName": "StripeWebhook",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

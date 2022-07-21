@@ -22,7 +22,7 @@ namespace StripeSubscription.StripeGateway
                     {
                         new SubscriptionItemOptions
                         {
-                            Quantity = AppConsts.SubscriptionQty,
+                            Quantity = 1,
                             Price = StripeConsts.PriceComplete,
                         },
                     },
@@ -37,8 +37,8 @@ namespace StripeSubscription.StripeGateway
         public void UpdateSubscription()
         {
             StripeConfiguration.ApiKey = StripeConsts.SecretKey;
-            var removeProducts = new List<string> { "si_LyHRKS6x1pekLq" };
-            var addProducts = new List<string> { "price_1LGHYkF6Es8YSFIW1olZHkNU", "price_1LGHYLF6Es8YSFIWfamFqXBH", "price_1LGHX4F6Es8YSFIWnRAhPfqH" };
+            var removeProducts = new List<string> { "si_LzllYdnQBpJbzB" };
+            var addProducts = new List<string> { StripeConsts.PriceCore, StripeConsts.PriceLeave, StripeConsts.PriceExpense,  };
 
             var service = new SubscriptionService();
             Subscription subscription = service.Get(StripeConsts.Subscription1);
@@ -90,6 +90,31 @@ namespace StripeSubscription.StripeGateway
                 {
                     Id = item.Id,
                     Quantity = item.Quantity + 1
+                });
+            }
+
+            var options = new SubscriptionUpdateOptions
+            {
+                Items = subscriptionItems
+            };
+
+            service.Update(StripeConsts.Subscription1, options);
+        }
+
+        public void UpdateSubscriptionOnUserLeave()
+        {
+            StripeConfiguration.ApiKey = StripeConsts.SecretKey;
+
+            var service = new SubscriptionService();
+            Subscription subscription = service.Get(StripeConsts.Subscription1);
+            var subscriptionItems = new List<SubscriptionItemOptions>();
+
+            foreach (var item in subscription.Items)
+            {
+                subscriptionItems.Add(new SubscriptionItemOptions
+                {
+                    Id = item.Id,
+                    Quantity = 10
                 });
             }
 

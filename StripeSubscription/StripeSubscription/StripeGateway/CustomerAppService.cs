@@ -15,8 +15,8 @@ namespace StripeSubscription.StripeGateway
 
             var options = new CustomerCreateOptions
             {
-                Name = "Bill Gates",
-                Email = "gates@email.com",
+                Name = "Lewis Tolman",
+                Email = "lewis@email.com",
             };
             var service = new CustomerService();
             service.Create(options);
